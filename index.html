@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brainy Day</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab"> 
 </head>
 <body>
 <!-- Animated Background Video attributes from Chapt GPT-->
@@ -13,23 +14,36 @@
         <video src="Assets/RainyDay.mp4" autoplay loop muted></video>
     </div>
 
-    <!-- Raindrop Numbers-->
+    <!-- Raindrop Numbers
     <div class="drop">
         <img src="Assets/Raindrop.png" alt="Rainrop 1" class="drop__first">
     </div>
-
+-->
+<div class="dashboard">
+    
+     <!-- Instuctions-->
+     <div class="Instuctions">
+        <h3> Solve the problems to stop the rain!</h3>
+    </div>
 
     <!-- Math Problem-->
-    <div>
-        <h3> Solve the problems <br> to stop the rain!</h3>
+    <div class="mathProblem">
+    
     </div>
 
-    <!-- Lives/Progress-->
-    <div class="progress">
-        <h3 class="progress__lives__text">Lives:</h3>
-        <img src="Assets/Heart.png" alt="Heart icon" class="progress__lives">
-        <h3 class="progress__counter">Progress:</h3>
+    <!-- Progress-->
+    <div class="progress__container">
+        <h3 class="progress__counter">Progress</h3>
     </div>
-    
+
+    <!-- Lives-->
+    <div class="hearts__container">
+        <div class="hearts">
+        <!--<img src="Assets/Heart.png" alt="Heart icon" class="progress__lives">-->
+        </div>
+        <h3 class="progress__lives__text">Lives</h3>
+    </div>
+</div>
+
 </body>
 </html>
