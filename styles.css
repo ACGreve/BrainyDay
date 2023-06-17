@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    max-height: 100%;
     z-index: -1;
     display: flex;
     align-items: center;
@@ -10,30 +11,35 @@
   }
   
   .dashboard{
-    position: absolute;
-    display: flex;
+    position: relative;
+    display: flex; /*allows items within container to be reponsive*/
     height: 20%;
+    margin: auto; /*Keeps it centered*/
+    max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
   }
 
   .Instuctions{
-    flex-basis:16%;
+    flex-basis:22%;
     text-align: center;
-    margin-left: 7%;
-    margin-top: 2%;
+    margin-left: 3%;
+    margin-top: 1%;
     margin-right: 2%;
     margin-bottom: 1%;
-    font-size: 1.5em;
+    font-size: 3vw;
     width: auto;
+    font-family: 'Comic Neue', cursive;
   }
 
   .mathProblem{
     flex-basis: 26%;
-    margin-left: 5%;
-    margin-top: 4%;
-    margin-right: 6%;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-right: 8%;
     text-align: center;
     justify-content: center;
-    font-size: 2.6em;
+    font-size: 5vw;
+    font-family: 'Comic Neue', cursive;
+    flex-wrap: nowrap;
   }
 
   .progress__container{
@@ -41,7 +47,8 @@
     margin-left: 2%;
     margin-top: 7%;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 3vw;
+    font-family: 'Comic Neue', cursive;
   }
 
   .hearts__container{
@@ -53,7 +60,11 @@
     margin-left: 1%;
     text-align: center;
     flex-wrap: nowrap;
-    font-size: 1.3em;
+  }
+
+  .lives__text{
+    font-size: 2.2vw;
+    font-family: 'Comic Neue', cursive;
   }
 
   .progress__lives{
@@ -76,33 +87,38 @@
     border-radius: 15px;
   }
 
-  .drop{
+  /* .drop{
     position: relative;
     margin-top: 18%;
     height: 100%;
     border: solid .1em;
     text-align: center;
     border: solid .1em;
+  }*/
+
+  .drop__container{
+    position: relative;
+    height: 30vw;
+    display: flex; /*allows items within container to be reponsive*/
+    margin: auto; /*Keeps it centered*/
+    max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
+    border: solid black;
+    margin-top: 5vw;
   }
 
-  .drop img{
-    scale: 40%;
+  .drop__container img{
+    max-width: 5.5%;
+    height: auto;
+    position: absolute;
+    left: 2vw; /* the x */
+    top: 50px; /* the y */
+  }
+
+  .drop__text{
+    font-size: 3.2vw;
+    font-family: 'Comic Neue', cursive;
   }
 
   body{
     background-color: #999999;
   }
-
-  /* h3{
-    font-family: "Josefin slab", sans-serif;
-  }
-
-
-  @media (max-width: 600px) {
-    /* CSS rules for smaller screens 
-  }
-
-  .progress__lives {
-    transform: scale(.15);
-  }
-  */
