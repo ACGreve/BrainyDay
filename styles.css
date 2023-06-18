@@ -9,6 +9,20 @@
     align-items: center;
     justify-content: center;
   }
+
+  #startButton{
+    position: absolute;
+    z-index: 1;
+    margin-top: 22vw;
+    margin-left: 45vw;
+    background-color: #d1571a;
+    font-family: 'Comic Neue', cursive;
+    font-size: 5vw;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+  }
   
   .dashboard{
     position: relative;
@@ -96,26 +110,32 @@
     border: solid .1em;
   }*/
 
-  .drop__container{
-    position: relative;
-    height: 30vw;
-    display: flex; /*allows items within container to be reponsive*/
-    margin: auto; /*Keeps it centered*/
-    max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
-    border: solid black;
-    margin-top: 5vw;
-  }
-
-  .drop__container img{
+  /* Controls the Image size*/
+  .drop img{
     max-width: 5.5%;
     height: auto;
     position: absolute;
-    left: 2vw; /* the x */
-    top: 50px; /* the y */
+    left: 35vw; /* the x */
+    top:21vw; /* the y */
+  }
+
+/*Image container*/
+  .drop{
+    position: relative;
+    height: 30vw;
+    margin: auto; /*Keeps it centered*/
+    max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
+    border: solid black;
+    margin-top: 4vw;
   }
 
   .drop__text{
-    font-size: 3.2vw;
+    position: absolute;
+    left: 37.6vw; /* the x has to be 2.8 greater the the left of the drop img! */
+    top: 26vw; /* the y has to be 5 greater the the left of the drop img!*/
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 3.7vw;
     font-family: 'Comic Neue', cursive;
   }
 

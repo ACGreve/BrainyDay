@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brainy Day</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <style src="script.js"></style>
     
     <!--Google Fonts Link-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,18 @@
 </head>
 <body>
 
+    <!--Start button-->
+    <button onclick="start()" id="startButton">Start</button>
+
+    <!--Start button JS-->
+    <script>
+        function start(){
+           var button = document.getElementById('startButton');
+           button.style.display = 'none';
+
+           raindrops()
+        }
+    </script> 
 
     <!-- Animated Background Video-->
     <video autoplay loop muted src="Assets/RainyDay.mp4" class="background-video"></video>
