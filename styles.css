@@ -101,31 +101,22 @@
     border-radius: 15px;
   }
 
-  /* .drop{
-    position: relative;
-    margin-top: 18%;
-    height: 100%;
-    border: solid .1em;
-    text-align: center;
-    border: solid .1em;
-  }*/
-
   /* Controls the Image size*/
-  .drop img{
+  #drop img{
     max-width: 5.5%;
     height: auto;
     position: absolute;
-    left: 35vw; /* the x */
-    top:21vw; /* the y */
+    left: 35vw; /* the x, range:0-92*/
+    top:21vw; /* the y, range 0-22*/
   }
 
 /*Image container*/
-  .drop{
+  #drop{
     position: relative;
     height: 30vw;
     margin: auto; /*Keeps it centered*/
     max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
-    border: solid black;
+    /*border: solid black;*/
     margin-top: 4vw;
   }
 
