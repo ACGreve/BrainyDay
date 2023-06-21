@@ -27,6 +27,13 @@ function raindrops(){
   // Change the image source on click
   this.src = 'Assets/Splat.png';
   this.style.maxWidth = 8 + '%'
+  this.pointer='pointer'
+
+  //remove the numbers on each of the drops after a click
+  var val = container.querySelectorAll('div');
+  val.forEach(function(div) {
+    container.removeChild(div);
+  });
 
   //Right/wrong check
 
@@ -35,7 +42,21 @@ function raindrops(){
   //Lives check/update
 
   // fade out all images and rerun raindrops here
+  //fade out everything in "drop"
+  setTimeout(function() {
+    drop.classList.add('disapear');
+    
+    //After they are faded, delete all the items
+    setTimeout(function() {
+      container.innerHTML = '';
 
+      //After all items are faded, return visabilty
+      setTimeout(function() {
+      container.classList.remove('disapear')
+      raindrops()
+      },200);
+    }, 300);
+  }, 500);
   };
 
   //initialize variables to be stored in array and checked by checkOverlap
@@ -57,6 +78,42 @@ function raindrops(){
   //put the img in the container
   let container = document.getElementById('drop');
   container.appendChild(newDrop);
+  
+  //make the numbers
+  var dropNumber = document.createElement('div');
+  dropNumber.src = 'Assets/Raindrop.png';
+  dropNumber.id= 'dropValue' + i;
+  dropNumber.classList.add('drop__text')
+  dropNumber.alt = 'Raindrop Number Value'
+  container.appendChild(dropNumber);
+
+  //Add values to the raindrops!
+  var number = randomNumber(1,100);
+
+  dropNumber.textContent = number;
+
+  //Position the number
+  dropLeft= left + 2.6;
+  dropTop = top +5;
+  dropNumber.style.left = dropLeft + 'vw';
+  dropNumber.style.top = dropTop + 'vw';
+
+  //Create the equation based on the first number generated!
+  /*
+  function equation(number,i){
+  if(i=0){
+    let a = randomNumber(1,100);
+    let b = randomNumber(1,100);
+      if(a+b==number){
+        //add a and b to text
+        alert(a+b)
+        else{
+        
+        }
+      }
+  }
+}
+*/
 }
 }
 
