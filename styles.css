@@ -24,7 +24,7 @@
     cursor: pointer;
   }
   
-  .dashboard{
+  #dashboard{
     position: relative;
     display: flex; /*allows items within container to be reponsive*/
     height: 20%;
@@ -148,4 +148,20 @@
     font-family: 'Comic Neue', cursive;
     margin-top: 22vw;
     margin-left: 37vw;
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  #results.disapear {
+    opacity: 0;
+  }
+
+  #game{
+    position: absolute;
+    font-size: 7vw;
+    font-family: 'Comic Neue', cursive;
+    margin-top: 22vw;
+    margin-left: 37vw;
+    opacity: 1;
+    transition: opacity 1s ease;
   }

@@ -35,6 +35,7 @@ function raindrops(){
       container.removeChild(div);
     });
 
+    results = document.getElementById('results')
     // fade out all images and rerun raindrops here
     //fade out everything in "drop"
     setTimeout(function() {
@@ -43,10 +44,14 @@ function raindrops(){
       //After they are faded, delete all the items
       setTimeout(function() {
         container.innerHTML = '';
+        //make text disappear
+        results.classList.add('disapear');
 
         //After all items are faded, return visabilty
         setTimeout(function() {
         container.classList.remove('disapear')
+        results.innerHTML = '';
+        results.classList.remove('disapear')
         raindrops()
         },800);
       }, 300);
@@ -119,6 +124,7 @@ function raindrops(){
 
   //Right/wrong check
   let results = document.getElementById('results')
+  let gameResults = document.getElementById('game')
   //search first available heart img
   let heartSearch = document.querySelector('img[src="Assets/Heart.png"]')
   //get count of how many heart images there are
@@ -132,6 +138,7 @@ function raindrops(){
   //Initialize the progress count
   let progress = 0;
   container = document.getElementById('drop');
+  dashboard = document.getElementById('dashboard')
   
   //get the drop container
   container.addEventListener('click',function(event){
@@ -144,19 +151,30 @@ function raindrops(){
       progress++ 
       console.log('current'+progress)
       results.textContent='Good Job!'
+      //add fade away code here!!
+
       if(progress===10){
         //Progress check
-        results.textContent='You Win!'  //I'll have to make a new div here!
+        gameResults.textContent='You Win!' 
+        dashboard.style.opacity= 0 
+        container.style.opacity= 0  
         background.setAttribute('src','Assets/SunsOut.mp4')
         console.log('Progress ' +progress)
+        //add restart/new game button here
+        
       }
     } else if(heartCounts===0){
     //Lives check
-      results.textContent='Game Over!'
+      gameResults.textContent='Game Over!'
       background.setAttribute('src','Assets/Flood.mp4')
+      dashboard.style.opacity= 0 
+      container.style.opacity= 0 
+      //add restart/new game button here
+
     } else if(event.target.id.startsWith('raindrop')) {
     //Lives update
     results.textContent='Try Again!'
+    //add fade away code here!!
     heartSearch.setAttribute('src','Assets/BrokenHeart.png')
     heartCounts = allHearts.length;
     console.log('heart count in else' +heartCounts)
@@ -186,8 +204,6 @@ function checkOverlap(left, top, imgLocations){
   // return false is there is an overlap
   return false
 }
-
-//New game button
 
 
 
