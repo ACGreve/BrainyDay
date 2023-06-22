@@ -118,12 +118,25 @@ function raindrops(){
 
   //Right/wrong check
   let results = document.getElementById('results')
+  //search first available heart img
+  let heartSearch = document.querySelector('img[src="Assets/Heart.png"]')
+  //get count of how many heart images there are
+  let allHearts = document.querySelectorAll('img[src="Assets/Heart.png"]')
+  let heartCounts = allHearts.length
+
+  //test
+  console.log('heart count' +heartCounts)
+
   //get the drop container
     container.addEventListener('click',function(event){
       if(event.target.id==='raindrop0'){
         results.textContent='Good Job!'
       } else {
       results.textContent='Try Again!'
+      heartSearch.setAttribute('src','Assets/BrokenHeart.png')
+      if(heartCounts=0){
+        
+      }
     }
   })
 
