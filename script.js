@@ -35,12 +35,6 @@ function raindrops(){
     container.removeChild(div);
   });
 
-  //Right/wrong check
-
-  //Progress check/update
-
-  //Lives check/update
-
   // fade out all images and rerun raindrops here
   //fade out everything in "drop"
   setTimeout(function() {
@@ -54,9 +48,9 @@ function raindrops(){
       setTimeout(function() {
       container.classList.remove('disapear')
       raindrops()
-      },200);
+      },800);
     }, 300);
-  }, 500);
+  }, 400);
   };
 
   //initialize variables to be stored in array and checked by checkOverlap
@@ -99,22 +93,44 @@ function raindrops(){
   dropNumber.style.top = dropTop + 'vw';
 
   //Create the equation based on the first number generated!
-  /*
-  function equation(number,i){
-  if(i=0){
-    let a = randomNumber(1,100);
-    let b = randomNumber(1,100);
-      if(a+b==number){
-        //add a and b to text
-        alert(a+b)
-        else{
-        
-        }
-      }
+  let firstDiv = document.getElementById('dropValue0');
+  let firstNumber = firstDiv.textContent
+
+  function abGeneration(target){
+    //set the max for a 1 greater than the target
+    let a = randomNumber(0, target-1);
+    //b can only be as big as the target -a
+    let b = target - a;
+    return [a, b]
   }
-}
-*/
-}
+
+  let sumArray = abGeneration(parseInt(firstNumber));
+
+  // Add the generated numbers to the equation
+  let equationContainer = document.getElementById('equation')
+  equationContainer.textContent = sumArray[0] + " " + "+ " + sumArray[1] + " " + "=__";
+
+  /* Test Code
+  console.log('first number= ' + firstNumber)
+  console.log('a= '+ sumArray[0])
+  console.log('b= '+ sumArray[1])
+  */
+
+  //Right/wrong check
+  let results = document.getElementById('results')
+  //get the drop container
+    container.addEventListener('click',function(event){
+      if(event.target.id==='raindrop0'){
+        results.textContent='Good Job!'
+      } else {
+      results.textContent='Try Again!'
+    }
+  })
+
+  //Progress check/update
+
+  //Lives check/update
+  }
 }
 
 //this needs work! some of the raindrops overlap!
@@ -129,6 +145,7 @@ function checkOverlap(left, top, imgLocations){
     //distance formula > d=sqrt((x2-x1)^2 +(y2-y1)^2). Calculates distance between 2 points
     var distance = Math.sqrt(xOverlap * xOverlap + yOverlap * yOverlap);
     // Checks if overlapping position found
+    console.log(distance)
     if (distance < 20) { 
       return true; 
     }

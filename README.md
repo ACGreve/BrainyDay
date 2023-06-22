@@ -53,3 +53,6 @@ This project is licensed under the [NAME HERE] License - see the LICENSE.md file
 Inspiration, code snippets, etc.
 * [github README template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
 * [Assets](https://www.canva.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [JS code assistance through ChatGPT](https://chat.openai.com/)
+* [CSS z-index help](https://stackoverflow.com/questions/64052019/make-element-with-smaller-z-index-clickable)
