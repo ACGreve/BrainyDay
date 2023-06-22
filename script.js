@@ -123,26 +123,36 @@ function raindrops(){
   //get count of how many heart images there are
   let allHearts = document.querySelectorAll('img[src="Assets/Heart.png"]')
   let heartCounts = allHearts.length
-
-  //test
-  console.log('heart count' +heartCounts)
-
+  //Get the background to change on win!
+  let background = document.getElementById('background')
+  //Initialize the progress count
+  let progress = 0;
+  
   //get the drop container
     container.addEventListener('click',function(event){
       if(event.target.id==='raindrop0'){
+        progress++ //Progress update
         results.textContent='Good Job!'
-      } else {
+        if(progress===2){
+          //Progress check
+          results.textContent='You Win!'
+          console.log('Progress ' +progress)
+        }
+      } else if(heartCounts===0){
+      //Lives check
+        results.textContent='Game Over!'
+        background.setAttribute('src','Assets/Flood.mp4')
+      } else{
+      //Lives update
       results.textContent='Try Again!'
       heartSearch.setAttribute('src','Assets/BrokenHeart.png')
-      if(heartCounts=0){
-        
+      heartCounts = allHearts.length;
+      console.log('heart count in else' +heartCounts)
       }
-    }
-  })
+    })
 
-  //Progress check/update
+  
 
-  //Lives check/update
   }
 }
 
@@ -158,8 +168,7 @@ function checkOverlap(left, top, imgLocations){
     //distance formula > d=sqrt((x2-x1)^2 +(y2-y1)^2). Calculates distance between 2 points
     var distance = Math.sqrt(xOverlap * xOverlap + yOverlap * yOverlap);
     // Checks if overlapping position found
-    console.log(distance)
-    if (distance < 20) { 
+    if (distance < 5) { 
       return true; 
     }
 }
