@@ -133,16 +133,17 @@ function raindrops(){
       if(event.target.id==='raindrop0'){
         progress++ //Progress update
         results.textContent='Good Job!'
-        if(progress===2){
+        if(progress===10){
           //Progress check
-          results.textContent='You Win!'
+          results.textContent='You Win!'  //I'll have to make a new div here!
+          background.setAttribute('src','Assets/SunsOut.mp4')
           console.log('Progress ' +progress)
         }
       } else if(heartCounts===0){
       //Lives check
         results.textContent='Game Over!'
         background.setAttribute('src','Assets/Flood.mp4')
-      } else{
+      } else if(event.target.id.startsWith('raindrop')) {
       //Lives update
       results.textContent='Try Again!'
       heartSearch.setAttribute('src','Assets/BrokenHeart.png')
