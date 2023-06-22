@@ -14,107 +14,108 @@ function raindrops(){
   // for loop to generate multiple raindrops
   for(let i=0; i<randomNumber(6,8);i++){
 
-  //make the img
-  var newDrop = document.createElement('img');
-  newDrop.src = 'Assets/Raindrop.png';
-  newDrop.id= 'raindrop' + i;
-  newDrop.alt = 'Raindrop Number Option'
+    //make the img
+    var newDrop = document.createElement('img');
+    newDrop.src = 'Assets/Raindrop.png';
+    newDrop.id= 'raindrop' + i;
+    newDrop.alt = 'Raindrop Number Option'
 
-  //Onclick function here! (//Onclick> splatter, check if right/wrong, display Good job/try again,
-  //clear images and rerun generate function)
-  newDrop.onclick = function() {
+    //Onclick function here! (//Onclick> splatter, check if right/wrong, display Good job/try again,
+    //clear images and rerun generate function)
+    newDrop.onclick = function() {
 
-  // Change the image source on click
-  this.src = 'Assets/Splat.png';
-  this.style.maxWidth = 8 + '%'
-  this.pointer='pointer'
+    // Change the image source on click
+    this.src = 'Assets/Splat.png';
+    this.style.maxWidth = 8 + '%'
+    this.pointer='pointer'
 
-  //remove the numbers on each of the drops after a click
-  var val = container.querySelectorAll('div');
-  val.forEach(function(div) {
-    container.removeChild(div);
-  });
+    //remove the numbers on each of the drops after a click
+    var val = container.querySelectorAll('div');
+    val.forEach(function(div) {
+      container.removeChild(div);
+    });
 
-  // fade out all images and rerun raindrops here
-  //fade out everything in "drop"
-  setTimeout(function() {
-    drop.classList.add('disapear');
-    
-    //After they are faded, delete all the items
+    // fade out all images and rerun raindrops here
+    //fade out everything in "drop"
     setTimeout(function() {
-      container.innerHTML = '';
-
-      //After all items are faded, return visabilty
+      drop.classList.add('disapear');
+      
+      //After they are faded, delete all the items
       setTimeout(function() {
-      container.classList.remove('disapear')
-      raindrops()
-      },800);
-    }, 300);
-  }, 400);
-  };
+        container.innerHTML = '';
 
-  //initialize variables to be stored in array and checked by checkOverlap
-  var left, top
-  do{
-    left = randomNumber(0,92)
-    top = randomNumber(0,22)
-  } while (checkOverlap(left, top, imgLocations));
+        //After all items are faded, return visabilty
+        setTimeout(function() {
+        container.classList.remove('disapear')
+        raindrops()
+        },800);
+      }, 300);
+    }, 400);
+    };
 
-  imgLocations.push({left:left, top:top});
+    //initialize variables to be stored in array and checked by checkOverlap
+    var left, top
+    do{
+      left = randomNumber(0,92)
+      top = randomNumber(0,22)
+    } while (checkOverlap(left, top, imgLocations));
 
-  //randomize and set the location of the img
-  newDrop.style.position = 'absolute';
-  newDrop.style.height = 'auto';
-  newDrop.style.maxWidth = 5.5 + '%'
-  newDrop.style.left = left + 'vw';
-  newDrop.style.top = top + 'vw';
+    imgLocations.push({left:left, top:top});
 
-  //put the img in the container
-  let container = document.getElementById('drop');
-  container.appendChild(newDrop);
-  
-  //make the numbers
-  var dropNumber = document.createElement('div');
-  dropNumber.src = 'Assets/Raindrop.png';
-  dropNumber.id= 'dropValue' + i;
-  dropNumber.classList.add('drop__text')
-  dropNumber.alt = 'Raindrop Number Value'
-  container.appendChild(dropNumber);
+    //randomize and set the location of the img
+    newDrop.style.position = 'absolute';
+    newDrop.style.height = 'auto';
+    newDrop.style.maxWidth = 5.5 + '%'
+    newDrop.style.left = left + 'vw';
+    newDrop.style.top = top + 'vw';
 
-  //Add values to the raindrops!
-  var number = randomNumber(1,100);
+    //put the img in the container
+    let container = document.getElementById('drop');
+    container.appendChild(newDrop);
+    
+    //make the numbers
+    var dropNumber = document.createElement('div');
+    dropNumber.src = 'Assets/Raindrop.png';
+    dropNumber.id= 'dropValue' + i;
+    dropNumber.classList.add('drop__text')
+    dropNumber.alt = 'Raindrop Number Value'
+    container.appendChild(dropNumber);
 
-  dropNumber.textContent = number;
+    //Add values to the raindrops!
+    var number = randomNumber(1,100);
 
-  //Position the number
-  dropLeft= left + 2.6;
-  dropTop = top +5;
-  dropNumber.style.left = dropLeft + 'vw';
-  dropNumber.style.top = dropTop + 'vw';
+    dropNumber.textContent = number;
 
-  //Create the equation based on the first number generated!
-  let firstDiv = document.getElementById('dropValue0');
-  let firstNumber = firstDiv.textContent
+    //Position the number
+    dropLeft= left + 2.6;
+    dropTop = top +5;
+    dropNumber.style.left = dropLeft + 'vw';
+    dropNumber.style.top = dropTop + 'vw';
 
-  function abGeneration(target){
-    //set the max for a 1 greater than the target
-    let a = randomNumber(0, target-1);
-    //b can only be as big as the target -a
-    let b = target - a;
-    return [a, b]
+    //Create the equation based on the first number generated!
+    let firstDiv = document.getElementById('dropValue0');
+    let firstNumber = firstDiv.textContent
+
+    function abGeneration(target){
+      //set the max for a 1 greater than the target
+      let a = randomNumber(0, target-1);
+      //b can only be as big as the target -a
+      let b = target - a;
+      return [a, b]
+    }
+
+    let sumArray = abGeneration(parseInt(firstNumber));
+
+    // Add the generated numbers to the equation
+    let equationContainer = document.getElementById('equation')
+    equationContainer.textContent = sumArray[0] + " " + "+ " + sumArray[1] + " " + "=__";
+
+    /* Test Code
+    console.log('first number= ' + firstNumber)
+    console.log('a= '+ sumArray[0])
+    console.log('b= '+ sumArray[1])
+    */
   }
-
-  let sumArray = abGeneration(parseInt(firstNumber));
-
-  // Add the generated numbers to the equation
-  let equationContainer = document.getElementById('equation')
-  equationContainer.textContent = sumArray[0] + " " + "+ " + sumArray[1] + " " + "=__";
-
-  /* Test Code
-  console.log('first number= ' + firstNumber)
-  console.log('a= '+ sumArray[0])
-  console.log('b= '+ sumArray[1])
-  */
 
   //Right/wrong check
   let results = document.getElementById('results')
@@ -125,37 +126,46 @@ function raindrops(){
   let heartCounts = allHearts.length
   //Get the background to change on win!
   let background = document.getElementById('background')
+  //Access the progress bar for updates
+  let progressBar=document.getElementById('progress')
+  let currentProgress= 0
   //Initialize the progress count
   let progress = 0;
+  container = document.getElementById('drop');
   
   //get the drop container
-    container.addEventListener('click',function(event){
-      if(event.target.id==='raindrop0'){
-        progress++ //Progress update
-        results.textContent='Good Job!'
-        if(progress===10){
-          //Progress check
-          results.textContent='You Win!'  //I'll have to make a new div here!
-          background.setAttribute('src','Assets/SunsOut.mp4')
-          console.log('Progress ' +progress)
-        }
-      } else if(heartCounts===0){
-      //Lives check
-        results.textContent='Game Over!'
-        background.setAttribute('src','Assets/Flood.mp4')
-      } else if(event.target.id.startsWith('raindrop')) {
-      //Lives update
-      results.textContent='Try Again!'
-      heartSearch.setAttribute('src','Assets/BrokenHeart.png')
-      heartCounts = allHearts.length;
-      console.log('heart count in else' +heartCounts)
+  container.addEventListener('click',function(event){
+    if(event.target.id==='raindrop0'){
+      //update the progress by 10%
+      currentProgress += 10;
+      progressBar.style.width = currentProgress + '%';
+      console.log(currentProgress)
+      //Progress update
+      progress++ 
+      console.log('current'+progress)
+      results.textContent='Good Job!'
+      if(progress===10){
+        //Progress check
+        results.textContent='You Win!'  //I'll have to make a new div here!
+        background.setAttribute('src','Assets/SunsOut.mp4')
+        console.log('Progress ' +progress)
       }
-    })
+    } else if(heartCounts===0){
+    //Lives check
+      results.textContent='Game Over!'
+      background.setAttribute('src','Assets/Flood.mp4')
+    } else if(event.target.id.startsWith('raindrop')) {
+    //Lives update
+    results.textContent='Try Again!'
+    heartSearch.setAttribute('src','Assets/BrokenHeart.png')
+    heartCounts = allHearts.length;
+    console.log('heart count in else' +heartCounts)
+    }
+  })
 
   
-
-  }
 }
+
 
 //this needs work! some of the raindrops overlap!
 function checkOverlap(left, top, imgLocations){
