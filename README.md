@@ -7,30 +7,15 @@ My project was inspired by a book I read awhile back called *Tommorow and Tommor
 
 ## Getting Started
 
-### Dependencies
+### Playing the Game
+The game is pretty simple, solve 10 math problems correctly and stop the rain, or lose all your lives and lose the game.
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing`
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* Press Start
+* Click the raindrop containing the right answer
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+To resart the game simply press the "New Game" button.
 
 ## Authors
 

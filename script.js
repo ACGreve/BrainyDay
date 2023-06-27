@@ -11,6 +11,24 @@ function raindrops(){
   // empty array to be used to store img locations so there is not repetition
   let imgLocations=[]; 
   
+
+  //Right/wrong check
+  let results = document.getElementById('results')
+  let gameResults = document.getElementById('game')
+  //search first available heart img
+  let heartSearch = document.querySelector('img[src="Assets/Heart.png"]')
+  //get count of how many heart images there are
+  let allHearts = document.querySelectorAll('img[src="Assets/Heart.png"]')
+  let heartCounts = allHearts.length
+  //Get the background to change on win!
+  let background = document.getElementById('background')
+  //Access the progress bar for updates
+  let progressBar=document.getElementById('progress')
+  let currentProgress= 0
+  //Initialize the progress count
+  container = document.getElementById('drop');
+  dashboard = document.getElementById('dashboard')
+
   // for loop to generate multiple raindrops
   for(let i=0; i<randomNumber(6,8);i++){
 
@@ -34,6 +52,46 @@ function raindrops(){
     val.forEach(function(div) {
       container.removeChild(div);
     });
+
+   
+
+    if(this.id==='raindrop0'){
+      //update the progress by 10%
+      currentProgress += 10;
+      progressBar.style.width = currentProgress + '%';
+      console.log(currentProgress)
+      //Progress update
+      progress++ 
+      console.log('current '+currentProgress)
+      results.textContent='Good Job!'
+      //add fade away code here!!
+
+      if(progress===10){
+        //Progress check
+        gameResults.textContent='You Win!' 
+        dashboard.style.opacity= 0 
+        container.style.opacity= 0  
+        background.setAttribute('src','Assets/SunsOut.mp4')
+        console.log('Progress ' +progress)
+        //add restart/new game button here
+
+      }
+    } else if(heartCounts===1){
+    //Lives check
+      gameResults.textContent='Game Over!'
+      background.setAttribute('src','Assets/Flood.mp4')
+      dashboard.style.opacity= 0 
+      container.style.opacity= 0 
+      //add restart/new game button here
+
+    } else if(this.id.startsWith('raindrop')) {
+    //Lives update
+    results.textContent='Try Again!'
+    //add fade away code here!!
+    heartSearch.setAttribute('src','Assets/BrokenHeart.png')
+    heartCounts = allHearts.length ;
+    console.log('heart count in else' +heartCounts)
+    }
 
     results = document.getElementById('results')
     // fade out all images and rerun raindrops here
@@ -121,67 +179,6 @@ function raindrops(){
     console.log('b= '+ sumArray[1])
     */
   }
-
-  //Right/wrong check
-  let results = document.getElementById('results')
-  let gameResults = document.getElementById('game')
-  //search first available heart img
-  let heartSearch = document.querySelector('img[src="Assets/Heart.png"]')
-  //get count of how many heart images there are
-  let allHearts = document.querySelectorAll('img[src="Assets/Heart.png"]')
-  let heartCounts = allHearts.length
-  //Get the background to change on win!
-  let background = document.getElementById('background')
-  //Access the progress bar for updates
-  let progressBar=document.getElementById('progress')
-  let currentProgress= 0
-  //Initialize the progress count
-  let progress = 0;
-  container = document.getElementById('drop');
-  dashboard = document.getElementById('dashboard')
-  
-  //get the drop container
-  container.addEventListener('click',function(event){
-    if(event.target.id==='raindrop0'){
-      //update the progress by 10%
-      currentProgress += 10;
-      progressBar.style.width = currentProgress + '%';
-      console.log(currentProgress)
-      //Progress update
-      progress++ 
-      console.log('current'+progress)
-      results.textContent='Good Job!'
-      //add fade away code here!!
-
-      if(progress===10){
-        //Progress check
-        gameResults.textContent='You Win!' 
-        dashboard.style.opacity= 0 
-        container.style.opacity= 0  
-        background.setAttribute('src','Assets/SunsOut.mp4')
-        console.log('Progress ' +progress)
-        //add restart/new game button here
-        
-      }
-    } else if(heartCounts===0){
-    //Lives check
-      gameResults.textContent='Game Over!'
-      background.setAttribute('src','Assets/Flood.mp4')
-      dashboard.style.opacity= 0 
-      container.style.opacity= 0 
-      //add restart/new game button here
-
-    } else if(event.target.id.startsWith('raindrop')) {
-    //Lives update
-    results.textContent='Try Again!'
-    //add fade away code here!!
-    heartSearch.setAttribute('src','Assets/BrokenHeart.png')
-    heartCounts = allHearts.length;
-    console.log('heart count in else' +heartCounts)
-    }
-  })
-
-  
 }
 
 
@@ -207,7 +204,4 @@ function checkOverlap(left, top, imgLocations){
 
 
 
-/*
-Notes for Image location randomization:
-https://replit.com/talk/ask/JS-place-image-on-random-coordinates/48068 */
 
