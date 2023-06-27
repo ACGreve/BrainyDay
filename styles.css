@@ -29,7 +29,7 @@
     display: flex; /*allows items within container to be reponsive*/
     height: 20%;
     margin: auto; /*Keeps it centered*/
-    max-width: 1620px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
+    max-width: 1475px; /* Makes it so that the dashboard doesn't overflow the video (width of the video is constrained by the hight of 100%)*/
   }
 
   .Instuctions{
@@ -105,7 +105,6 @@
   #drop img{
     max-width: 5.5%;
     height: auto;
-    position: absolute;
     left: 35vw; /* the x, range:0-92*/
     top:21vw; /* the y, range 0-22*/
   }
@@ -181,10 +180,9 @@
     scale: 75%;
   }
   
-
   @media (min-width: 1475px) {
-  body {
-    margin-right: 8vw;
-    margin-left: 8vw
+  #drop{
+    margin-right: 6.5vw;
+    top: -3vw
   };
   }
