@@ -29,10 +29,6 @@ ex. [LinkedIn](https://www.linkedin.com/in/amelia-greve-29155b141/)
 * 0.1
     * Initial Release
 
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
 ## Acknowledgments
 
 Inspiration, code snippets, etc.

@@ -180,3 +180,11 @@
     display: none;
     scale: 75%;
   }
+  
+
+  @media (min-width: 1475px) {
+  body {
+    margin-right: 8vw;
+    margin-left: 8vw
+  };
+  }
