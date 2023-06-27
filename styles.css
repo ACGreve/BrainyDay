@@ -186,3 +186,9 @@
     top: -3vw
   };
   }
+
+  @media (max-width: 700px) {
+    .progress-bar{
+      height: 20px;
+    };
+    }
