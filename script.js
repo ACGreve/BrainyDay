@@ -4,6 +4,9 @@ function randomNumber(min, max){
   return Math.floor(Math.random() *(max-min)+ min)
 }
 
+//initializing the progres bar so it does not reset to zero every time the function is run
+let currentProgress= 0
+
 //Onclick function may need to be added into the img generation directly
 //Function to generate new drop images
 function raindrops(){
@@ -11,7 +14,6 @@ function raindrops(){
   // empty array to be used to store img locations so there is not repetition
   let imgLocations=[]; 
   
-
   //Right/wrong check
   let results = document.getElementById('results')
   let gameResults = document.getElementById('game')
@@ -24,7 +26,6 @@ function raindrops(){
   let background = document.getElementById('background')
   //Access the progress bar for updates
   let progressBar=document.getElementById('progress')
-  let currentProgress= 0
   //Initialize the progress count
   container = document.getElementById('drop');
   dashboard = document.getElementById('dashboard')
@@ -53,21 +54,18 @@ function raindrops(){
       container.removeChild(div);
     });
 
-   
-
     if(this.id==='raindrop0'){
-      //update the progress by 10%
+      //Progress update 
       currentProgress += 10;
-      progressBar.style.width = currentProgress + '%';
-      console.log(currentProgress)
-      //Progress update
-      progress++ 
       console.log('current '+currentProgress)
       results.textContent='Good Job!'
-      //add fade away code here!!
+      //update the progress by 10%
+      progressBar.style.width = currentProgress + '%';
+      console.log(currentProgress)
 
-      if(progress===10){
+      if(currentProgress===100){
         //Progress check
+        results.textContent=''
         gameResults.textContent='You Win!' 
         dashboard.style.opacity= 0 
         container.style.opacity= 0  
