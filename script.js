@@ -7,6 +7,22 @@ function randomNumber(min, max){
 //initializing the progres bar so it does not reset to zero every time the function is run
 let currentProgress= 0
 
+
+//Start Function
+function start(){
+  var button = document.getElementById('startButton');
+  button.style.display = 'none';
+
+  raindrops()
+}
+
+//Restart Function
+function restart(){
+
+  location.reload();
+
+}
+
 //Onclick function may need to be added into the img generation directly
 //Function to generate new drop images
 function raindrops(){
@@ -29,6 +45,8 @@ function raindrops(){
   //Initialize the progress count
   container = document.getElementById('drop');
   dashboard = document.getElementById('dashboard')
+  //Get New Game button
+  let newGame = document.getElementById('newGame')
 
   // for loop to generate multiple raindrops
   for(let i=0; i<randomNumber(6,8);i++){
@@ -72,7 +90,7 @@ function raindrops(){
         background.setAttribute('src','Assets/SunsOut.mp4')
         console.log('Progress ' +progress)
         //add restart/new game button here
-
+        newGame.style.display='block'
       }
     } else if(heartCounts===1){
     //Lives check
@@ -81,6 +99,8 @@ function raindrops(){
       dashboard.style.opacity= 0 
       container.style.opacity= 0 
       //add restart/new game button here
+      newGame.style.marginLeft=41 + 'vw'
+      newGame.style.display='block'
 
     } else if(this.id.startsWith('raindrop')) {
     //Lives update
@@ -178,7 +198,6 @@ function raindrops(){
     */
   }
 }
-
 
 //this needs work! some of the raindrops overlap!
 function checkOverlap(left, top, imgLocations){

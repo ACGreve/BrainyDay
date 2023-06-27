@@ -165,3 +165,18 @@
     opacity: 1;
     transition: opacity 1s ease;
   }
+
+  #newGame{
+    position: absolute;
+    margin-top: -18vw;
+    margin-left: 36.5vw;
+    background-color: #d1571a;
+    font-family: 'Comic Neue', cursive;
+    font-size: 5vw;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    display: none;
+    scale: 75%;
+  }
